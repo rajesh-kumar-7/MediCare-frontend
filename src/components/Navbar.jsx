@@ -29,10 +29,10 @@ const Navbar = () => {
     <>
     
       <div className="hidden h-10 md:w-full h-20 md:flex gap-30 items-center justify-center  ">
-        <div className=" overflow-hidden w-25">
+        <div className=" overflow-hidden h-20 w-25">
           <img
             src="/logo_medicare.png"
-            className="rounded w-full h-full  object-contain"
+            className="rounded w-full object-contain"
           />
         </div>
         <div className="gap-10 flex font-semibold items-center justify-center">
