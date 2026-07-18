@@ -80,6 +80,25 @@ const Navbar = () => {
           <Link to="/doctors">All Doctors</Link>
           <Link to="/About"> About </Link>
           <Link to="/Contact"> Contact</Link>
+          {isLog ? (
+      <>
+        <Link to="/Myappointment">My Appointments</Link>
+
+        <button
+          onClick={logout}
+          className="text-red-500 font-semibold"
+        >
+          Logout
+        </button>
+      </>
+    ) : (
+      <Link
+        to="/signup"
+        className="bg-blue-700 text-white px-4 py-2 rounded-full"
+      >
+        Create Account
+      </Link>
+    )}
         </div>
 
       )}
