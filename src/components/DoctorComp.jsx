@@ -1,26 +1,54 @@
-import React from 'react'
-import api from '../api/axios'
+import React from "react";
+import api from "../api/axios";
 
-const DoctorComp = ({doctor}) => {
-    const deletedoc = async()=>{
-        const res = await api.delete(`/api/admin/deleteDoctor/${doctor._id}`)
-        alert("deleted")
-        window.location.reload()
+const DoctorComp = ({ doctor }) => {
+  const deletedoc = async () => {
+    await api.delete(`/api/admin/deleteDoctor/${doctor._id}`);
+    alert("Doctor deleted successfully");
+    window.location.reload();
+  };
 
-
-    }
   return (
-    <>
-    <div className='border w-fit p-2 gap-2 m-2 flex flex-col items-center justify-center' >
-        <img className="w-50" src={doctor.image}/>
-        <p>Name:{doctor.name}</p>
-        <p>Phone:{doctor.phone}</p>
-        <p>Qualification:{doctor.qualification}</p>
-        <button className="border text-red-400 rounded-full p-1  text-center"  onClick={deletedoc}>Delete Doctor</button>
+    <div className="bg-white w-72 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+      <img
+        src={doctor.image}
+        alt={doctor.name}
+        className="w-full h-60 object-cover"
+      />
 
+      <div className="p-5">
+        <h2 className="text-xl font-bold text-gray-800">
+          {doctor.name}
+        </h2>
+
+        <p className="text-blue-600 font-medium mt-1">
+          {doctor.specialization}
+        </p>
+
+        <div className="mt-4 space-y-2 text-gray-600">
+          <p>
+            <span className="font-semibold">📞 Phone:</span> {doctor.phone}
+          </p>
+
+          <p>
+            <span className="font-semibold">🎓 Qualification:</span>{" "}
+            {doctor.qualification}
+          </p>
+
+          <p>
+            <span className="font-semibold">💰 Fees:</span> ₹{doctor.fees}
+          </p>
+        </div>
+
+        <button
+          onClick={deletedoc}
+          className="w-full mt-6 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300"
+        >
+          Delete Doctor
+        </button>
+      </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default DoctorComp
+export default DoctorComp;
